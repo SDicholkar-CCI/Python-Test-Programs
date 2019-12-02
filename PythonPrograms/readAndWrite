@@ -1,0 +1,13 @@
+import gzip
+import json
+import random
+
+"""for line in f:
+        print('got line', line)"""
+with gzip.open("./venv/Lib/site-packages/spellchecker/resources/en.json.gz", "rb") as f:
+    data = json.loads(f.read().decode("ascii"))
+    wordToAdd = "VIVITROL"
+    data[wordToAdd] = random.randint(100, 100000)
+    json_str = json.dumps(data, indent=1)
+    with gzip.open('./venv/Lib/site-packages/spellchecker/resources/en.json.gz', mode='wb') as g:
+        g.write(json_str.encode('utf-8'))

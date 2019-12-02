@@ -1,0 +1,16 @@
+from spellchecker import SpellChecker
+
+# find those words that may be misspelled
+spell = SpellChecker(case_sensitive=True)
+file = open("D:/Swapnil Data/spellAndGrammerCheck.txt", "r")
+sentence = file.read()
+spell.word_frequency.load_dictionary('./venv/Lib/site-packages/spellchecker/resources/en.json.gz')
+misspelled = spell.unknown(sentence.split(" "))
+
+for word in misspelled:
+    print("checked: ", word)
+    # Get the one `most likely` answer
+    print(spell.correction(word))
+
+    # Get a list of `likely` options
+    print(spell.candidates(word))
