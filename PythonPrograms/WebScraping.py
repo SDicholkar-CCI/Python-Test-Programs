@@ -16,7 +16,7 @@ def recursiveChildren(x):
             if name is not None:
                 count = child.findChildren()
                 """print('next', child.next)"""
-                if type(child.next) is NavigableString and child.next != '\n':
+                if type(child.next) is NavigableString and child.next != '\n' and name != 'script':
                     print(child.get_text())
                 recursiveChildren(child)
     else:
