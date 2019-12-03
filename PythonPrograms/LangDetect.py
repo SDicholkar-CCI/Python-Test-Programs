@@ -7,4 +7,5 @@ fileText = sentence.decode('utf-8')
 for word in fileText.split(' '):
     b = TextBlob(word)
     print('TextBlo: ', word,  b.detect_language())
-    print(lng.classify(word))
+    """print(lng.classify(word))"""
+
